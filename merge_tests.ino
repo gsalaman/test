@@ -8,7 +8,7 @@ void setup()
 {
   Serial.begin(9600);
   
-  ver_led_setup(2);
+  ver_led_setup(5);
 }
 
 void loop()
@@ -20,8 +20,10 @@ void loop()
   
   Serial.print("MASTER: ");
   Serial.println(my_string);
+
   i++;
+  if (i>20) i= 0;
   
   ver_led_run();
-  delay(300);
+  delay(100);
 }
