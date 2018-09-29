@@ -8,7 +8,7 @@ void setup()
 {
   Serial.begin(9600);
   
-  ver_led_setup(4);
+  ver_led_setup(5);
 }
 
 void loop()
@@ -19,8 +19,10 @@ void loop()
   sprintf(my_string, "Number = %d", i);
   
   Serial.println(my_string);
+
   i++;
+  if (i>20) i= 0;
   
   ver_led_run();
-  delay(300);
+  delay(100);
 }
