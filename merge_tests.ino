@@ -4,14 +4,14 @@
 // I'm gonna want to keep it.
 #include "ver_led.h"
 
-setup
+void setup()
 {
   Serial.begin(9600);
   
   ver_led_setup(2);
 }
 
-loop
+void loop()
 {
   static int i=0;
   char my_string[40];
