@@ -8,7 +8,7 @@ void setup()
 {
   Serial.begin(9600);
   
-  ver_led_setup(3);
+  ver_led_setup(2);
 }
 
 void loop()
