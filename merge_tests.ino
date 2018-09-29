@@ -8,7 +8,7 @@ void setup()
 {
   Serial.begin(9600);
   
-  ver_led_setup(2);
+  ver_led_setup(3);
 }
 
 void loop()
@@ -18,6 +18,7 @@ void loop()
   
   sprintf(my_string, "Number = %d", i);
   
+  Serial.print("MASTER: ");
   Serial.println(my_string);
   i++;
   
