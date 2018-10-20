@@ -13,7 +13,9 @@ SoftwareSerial XBee(2, 3); // Arduino RX, TX (XBee Dout, Din)
 #define regularLED_pin 12
 #define turboLED_pin 13
 
-int tempDirection = 5;
+#define DIR_STOP 5
+
+int tempDirection = DIR_STOP;
 int Speed = 2;
 int Direction;
 
@@ -80,7 +82,7 @@ void loop() {
             driveForwardSlightRight();           
          else if (Direction == 4)
             driveLeft();
-         else if (Direction == 5)
+         else if (Direction == DIR_STOP)
             stopDriving();        
          else if (Direction == 6)
             driveRight();     
