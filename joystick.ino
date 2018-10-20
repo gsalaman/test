@@ -35,33 +35,39 @@ void setup() {
   digitalWrite(turboLED_pin, LOW);
 }
 
+void read_direction( void )
+{
+  if ((digitalRead(zippyy_switch_pin_4) == 0) && 
+      (digitalRead(zippyy_switch_pin_2) == 0))
+    Direction = 3;
+  else if ((digitalRead(zippyy_switch_pin_1) == 0) && 
+            (digitalRead(zippyy_switch_pin_2) == 0))
+    Direction = 9;
+  else if ((digitalRead(zippyy_switch_pin_1) == 0) && 
+           (digitalRead(zippyy_switch_pin_3) == 0))
+    Direction = 7;
+  else if ((digitalRead(zippyy_switch_pin_3) == 0) && 
+           (digitalRead(zippyy_switch_pin_4) == 0))
+    Direction = 1;    
+  else if(digitalRead(zippyy_switch_pin_1) == 0)
+    Direction = 8;
+  else if(digitalRead(zippyy_switch_pin_4) == 0)
+    Direction = 2;
+  else if(digitalRead(zippyy_switch_pin_2) == 0)
+    Direction = 6;
+  else if(digitalRead(zippyy_switch_pin_3) == 0)
+    Direction = 4;
+  else
+    Direction = 5;  
+       
+  delay (100);
+    
+}
+
 void loop() {
 
 //Read ZIPPYY Joystick
-  
-      if ((digitalRead(zippyy_switch_pin_4) == 0) && 
-      (digitalRead(zippyy_switch_pin_2) == 0))
-        Direction = 3;
-      else if ((digitalRead(zippyy_switch_pin_1) == 0) && 
-      (digitalRead(zippyy_switch_pin_2) == 0))
-        Direction = 9;
-      else if ((digitalRead(zippyy_switch_pin_1) == 0) && 
-      (digitalRead(zippyy_switch_pin_3) == 0))
-        Direction = 7;
-      else if ((digitalRead(zippyy_switch_pin_3) == 0) && 
-      (digitalRead(zippyy_switch_pin_4) == 0))
-        Direction = 1;    
-      else if(digitalRead(zippyy_switch_pin_1) == 0)
-        Direction = 8;
-      else if(digitalRead(zippyy_switch_pin_4) == 0)
-        Direction = 2;
-      else if(digitalRead(zippyy_switch_pin_2) == 0)
-        Direction = 6;
-      else if(digitalRead(zippyy_switch_pin_3) == 0)
-        Direction = 4;
-      else
-        Direction = 5;  
-       delay (100);
+  read_direction();
        
 //Check to see if joystick direction has changed
 
