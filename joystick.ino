@@ -67,14 +67,10 @@ void read_direction( void )
     
 }
 
-void loop() {
-
-//Read ZIPPYY Joystick
-  read_direction();
-       
-//Check to see if joystick direction has changed
-
-      if(Direction != tempDirection){
+void check_dir_and_send( void )
+{
+   if(Direction != tempDirection)
+   {
          if (Direction == 1)
             driveForwardSlightLeft();
          else if (Direction == DIR_FWD)
@@ -95,7 +91,18 @@ void loop() {
             driveBackSlightRight();       
            
          tempDirection = Direction;
-      }
+   }
+  
+}
+
+void loop() {
+
+//Read ZIPPYY Joystick
+  read_direction();
+       
+//Check to see if joystick direction has changed
+  check_dir_and_send();
+     
 
       if (digitalRead(speedButton_pin) == 0){
         speedToggle();
