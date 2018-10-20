@@ -14,6 +14,7 @@ SoftwareSerial XBee(2, 3); // Arduino RX, TX (XBee Dout, Din)
 #define turboLED_pin 13
 
 #define DIR_STOP 5
+#define DIR_FWD 2
 
 int tempDirection = DIR_STOP;
 int Speed = 2;
@@ -54,7 +55,7 @@ void read_direction( void )
   else if(digitalRead(zippyy_switch_pin_1) == 0)
     Direction = 8;
   else if(digitalRead(zippyy_switch_pin_4) == 0)
-    Direction = 2;
+    Direction = DIR_FWD;
   else if(digitalRead(zippyy_switch_pin_2) == 0)
     Direction = 6;
   else if(digitalRead(zippyy_switch_pin_3) == 0)
@@ -76,7 +77,7 @@ void loop() {
       if(Direction != tempDirection){
          if (Direction == 1)
             driveForwardSlightLeft();
-         else if (Direction == 2)
+         else if (Direction == DIR_FWD)
             driveForward();
          else if (Direction == 3)
             driveForwardSlightRight();           
